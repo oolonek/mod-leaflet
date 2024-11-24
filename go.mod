@@ -1,4 +1,4 @@
-module github.com/gethinode/mod-leaflet
+module github.com/oolonek/mod-leaflet
 
 go 1.19
 

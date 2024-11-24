@@ -14,17 +14,17 @@
     <a href="https://gethinode.com" alt="Hinode theme">
         <img src="https://img.shields.io/badge/theme-hinode-blue">
     </a>
-    <a href="https://github.com/gethinode/mod-leaflet/commits/main" alt="Last commit">
-        <img src="https://img.shields.io/github/last-commit/gethinode/mod-leaflet.svg">
+    <a href="https://github.com/oolonek/mod-leaflet/commits/main" alt="Last commit">
+        <img src="https://img.shields.io/github/last-commit/oolonek/mod-leaflet.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-leaflet/issues" alt="Issues">
-        <img src="https://img.shields.io/github/issues/gethinode/mod-leaflet.svg">
+    <a href="https://github.com/oolonek/mod-leaflet/issues" alt="Issues">
+        <img src="https://img.shields.io/github/issues/oolonek/mod-leaflet.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-leaflet/pulls" alt="Pulls">
-        <img src="https://img.shields.io/github/issues-pr-raw/gethinode/mod-leaflet.svg">
+    <a href="https://github.com/oolonek/mod-leaflet/pulls" alt="Pulls">
+        <img src="https://img.shields.io/github/issues-pr-raw/oolonek/mod-leaflet.svg">
     </a>
-    <a href="https://github.com/gethinode/mod-leaflet/blob/main/LICENSE" alt="License">
-        <img src="https://img.shields.io/github/license/gethinode/mod-leaflet">
+    <a href="https://github.com/oolonek/mod-leaflet/blob/main/LICENSE" alt="License">
+        <img src="https://img.shields.io/github/license/oolonek/mod-leaflet">
     </a>
 </p>
 

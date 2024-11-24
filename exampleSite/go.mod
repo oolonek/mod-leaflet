@@ -1,3 +1,3 @@
-module github.com/gethinode/mod-leaflet-test
+module github.com/oolonek/mod-leaflet-test
 
 go 1.19
