@@ -18,8 +18,8 @@ document.querySelectorAll('div.leaflet-map').forEach(map => {
 
     if (popup !== null && popupLat !== null && popupLong !== null) {
       L.marker([popupLat, popupLong]).addTo(bind)
-        // .bindPopup(popup)
-        // .openPopup()
+        .bindPopup(popup)
+        .openPopup()
     }
   }
 })
