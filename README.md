@@ -46,3 +46,4 @@ Hinode is a clean blog theme for [Hugo][hugo], an open-source static site genera
 [leaflet]: https://leafletjs.com
 [repository]: https://github.com/gethinode/hinode.git
 [repository_template]: https://github.com/gethinode/template.git
+
