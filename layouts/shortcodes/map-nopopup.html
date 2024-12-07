@@ -7,7 +7,7 @@
 {{ $error := false }}
 
 <!-- Validate arguments -->
-{{ if partial "utilities/IsInvalidArgs.html" (dict "structure" "map-nopopup" "args" .Params) }}
+{{ if partial "utilities/IsInvalidArgs.html" (dict "structure" "map" "args" .Params) }}
     {{ errorf "Invalid arguments: %s" .Position -}}
     {{ $error = true }}
 {{ end }}
