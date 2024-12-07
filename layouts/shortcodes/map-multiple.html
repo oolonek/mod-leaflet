@@ -1,40 +1,29 @@
-<!-- 
+{{/* 
     Copyright © 2024 The Hinode Team / Mark Dumay. All rights reserved.
     Use of this source code is governed by The MIT License (MIT) that can be found in the LICENSE file.
     Visit gethinode.com/license for more details.
--->
+*/}}
 
 {{ $error := false }}
 
 <!-- Validate arguments -->
-{{ if partial "utilities/IsInvalidArgs.html" (dict "structure" "map" "args" .Params) }}
+{{ if partial "utilities/IsInvalidArgs.html" (dict "structure" "map-multiple" "args" .Params) }}
     {{ errorf "Invalid arguments: %s" .Position -}}
     {{ $error = true }}
 {{ end }}
 
 <!-- Initialize arguments -->
-
-{{- $id := printf "leaflet-map-%d" .Ordinal -}}
+{{ $id := printf "leaflet-map-%d" .Ordinal }}
 {{ with .Get "id" }}
     {{ $id = . }}
 {{ end }}
 
 {{ $class := .Get "class" | default "ratio ratio-16x9 w-100 mx-auto" }}
 
-{{ $error := false }}
-{{ $viewLat := 51.377 }}
-{{ $viewLong := 7.90 }}
-{{ $zoom := 2 }}
-{{ $popup := "Multi" }}
-{{ $popupLat := ""  }}
-{{ $popupLong := "" }}
-
-{{- with .Get "lat" }}{{ $viewLat = . }}{{ end -}}
-{{- with .Get "long" }}{{ $viewLong = . }}{{ end -}}
-{{- with .Get "zoom" }}{{ $zoom = . }}{{ end -}}
-{{- with .Get "popup" }}{{ $popup = . }}{{ end -}}
-{{- with .Get "popup-lat" }}{{ $popupLat = . }}{{ end -}}
-{{- with .Get "popup-long" }}{{ $popupLong = . }}{{ end -}}
+{{ $viewLat := .Get "view-lat" | default "52.377" }}
+{{ $viewLong := .Get "view-long" | default "4.90" }}
+{{ $zoom := .Get "zoom" | default "13" }}
+{{ $locations := .Get "locations" | default slice }}
 
 <!-- Main code -->
 {{- if not $error -}}
@@ -42,8 +31,16 @@
         {{ with $viewLat }}data-leaflet-view-lat="{{ . }}"{{ end }}
         {{ with $viewLong }}data-leaflet-view-long="{{ . }}"{{ end }}
         {{ with $zoom }}data-leaflet-view-zoom="{{ . }}"{{ end }}
-        {{ with $popup }}data-leaflet-popup-caption="{{ . }}"{{ end }}
-        {{ with $popupLat }}data-leaflet-popup-lat="{{ . }}"{{ end }}
-        {{ with $popupLong }}data-leaflet-popup-long="{{ . }}"{{ end }}>
+        {{ range $index, $location := $locations }}
+            {{ with $location.lat }}
+                data-leaflet-marker-{{ $index }}-lat="{{ . }}"
+            {{ end }}
+            {{ with $location.long }}
+                data-leaflet-marker-{{ $index }}-long="{{ . }}"
+            {{ end }}
+            {{ with $location.popup }}
+                data-leaflet-marker-{{ $index }}-popup="{{ . }}"
+            {{ end }}
+        {{ end }}>
     </div>
 {{- end -}}
