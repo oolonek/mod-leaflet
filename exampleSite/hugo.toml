@@ -19,6 +19,9 @@ title = 'Test site for mod-leaflet'
     source = "dist/leaflet.scss"
     target = "static/leaflet.css"
   [[module.imports.mounts]]
+    source = "dist/MarkerCluster.css"
+    target = "static/MarkerCluster.css"
+  [[module.imports.mounts]]
     source = "layouts"
     target = "layouts"
   [[module.imports.mounts]]
