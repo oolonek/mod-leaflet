@@ -6,10 +6,6 @@
   [[module.mounts]]
     source = "dist"
     target = "assets/js/modules/leaflet"
-    includeFiles = "leaflet.js"
-  [[module.mounts]]
-    source = "dist"
-    target = "assets/js/modules/leaflet"
     includeFiles = "leaflet.markercluster.js"
   [[module.mounts]]
     source = "dist"
