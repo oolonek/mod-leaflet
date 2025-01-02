@@ -9,8 +9,16 @@
     includeFiles = "leaflet.js"
   [[module.mounts]]
     source = "dist"
+    target = "assets/js/modules/leaflet"
+    includeFiles = "leaflet.markercluster.js"
+  [[module.mounts]]
+    source = "dist"
     target = "assets/scss"
     includeFiles = "leaflet.scss"
+  [[module.mounts]]
+    source = "dist"
+    target = "assets/scss"
+    includeFiles = "MarkerCluster.css"
   [[module.mounts]]
     source = "dist/images"
     target = "static/css/images"
