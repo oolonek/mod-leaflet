@@ -19,22 +19,14 @@
     {{ $id = . }}
 {{ end }}
 
-{{ $class := .Get "class" | default "ratio ratio-16x9 w-100 mx-auto" }}
+{{ $class := .Get "class" | default .Page.Params.class | default "ratio ratio-16x9 w-100 mx-auto" }}
+{{ $viewLat := .Get "lat" | default .Page.Params.lat | default 52.377 }}
+{{ $viewLong := .Get "long" | default .Page.Params.long | default 4.90 }}
+{{ $zoom := .Get "zoom" | default .Page.Params.zoom | default 13 }}
 
-{{ $error := false }}
-{{ $viewLat := 52.377 }}
-{{ $viewLong := 4.90 }}
-{{ $zoom := 13 }}
-{{ $popup := "" }}
-{{ $popupLat := ""  }}
-{{ $popupLong := "" }}
-
-{{- with .Get "lat" }}{{ $viewLat = . }}{{ end -}}
-{{- with .Get "long" }}{{ $viewLong = . }}{{ end -}}
-{{- with .Get "zoom" }}{{ $zoom = . }}{{ end -}}
-{{- with .Get "popup" }}{{ $popup = . }}{{ end -}}
-{{- with .Get "popup-lat" }}{{ $popupLat = . }}{{ end -}}
-{{- with .Get "popup-long" }}{{ $popupLong = . }}{{ end -}}
+{{ $popup := .Get "popup" | default .Page.Params.popup | default "" }}
+{{ $popupLat := .Get "popup-lat" | default .Page.Params.popupLat | default "" }}
+{{ $popupLong := .Get "popup-long" | default .Page.Params.popupLong | default "" }}
 
 <!-- Main code -->
 {{- if not $error -}}
