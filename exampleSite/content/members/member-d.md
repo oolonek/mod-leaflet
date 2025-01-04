@@ -15,4 +15,3 @@ popupLong: -78.467834
 {{< map long=5.2 popup="Custom Location" >}}
 
 
-https://www.openstreetmap.org/#map=14/46.79217/7.15751

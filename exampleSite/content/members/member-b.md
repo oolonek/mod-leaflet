@@ -13,5 +13,3 @@ popupLong: 4.900562
 
 {{< map >}}
 
-
-https://www.openstreetmap.org/#map=14/46.79217/7.15751
