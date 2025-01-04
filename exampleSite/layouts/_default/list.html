@@ -11,8 +11,8 @@
     {{ range .Pages }}
     {
       name: "{{ .Title }}",
-      lat: {{ .Params.lat }},
-      long: {{ .Params.long }},
+      lat: {{ .Params.popupLat }},
+      long: {{ .Params.popupLong }},
       popup: "{{ .Params.popup | default .Title }}",
       link: "{{ .RelPermalink }}"
     },
@@ -55,7 +55,7 @@
     }
       // Add the cluster group to the map
       map.addLayer(markersCluster);
-      
+
   });
 </script>
 

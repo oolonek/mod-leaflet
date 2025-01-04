@@ -2,10 +2,6 @@
 title: Members D
 description: Site to test map shortcode.
 date: 2023-07-08
-lat: -0.180653
-long: -78.467834
-zoom: 13
-class: "leaflet-custom"
 popup: "Quito"
 popupLat: -0.180653
 popupLong: -78.467834
