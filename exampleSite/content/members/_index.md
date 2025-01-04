@@ -3,5 +3,4 @@ title: "Members"
 description: "Map showing all members"
 ---
 
-And this is a text.
-
+The map displaying all members geolocation with clustered markers

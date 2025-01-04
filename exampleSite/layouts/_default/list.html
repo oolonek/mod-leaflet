@@ -44,16 +44,18 @@
       bounds.extend([marker.lat, marker.long]);
     });
 
-    // Add the cluster group to the map
-    map.addLayer(markersCluster);
-
     // Fit map to bounds
     if (!bounds.isValid()) {
       // Set a default view if no valid bounds (e.g., no markers)
       map.setView([52.377, 4.90], 6);
     } else {
-      map.fitBounds(bounds, { padding: [20, 20] });
+      // Fit the map to the bounds with some padding and zoom in a bit
+      map.fitBounds(bounds, { padding: [10, 10] });
+      map.setZoom(map.getZoom() - 0.6);
     }
+      // Add the cluster group to the map
+      map.addLayer(markersCluster);
+      
   });
 </script>
 
