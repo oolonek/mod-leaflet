@@ -19,7 +19,7 @@
     {{ $id = . }}
 {{ end }}
 
-{{ $class := .Get "class" | default .Page.Params.class | default "leaflet-custom" }}
+{{ $class := .Get "class" | default .Page.Params.class | default "ratio ratio-16x9 w-100 mx-auto" }}
 {{ $zoom := .Get "zoom" | default .Page.Params.zoom | default 13 }}
 
 {{ $popup := .Get "popup" | default .Page.Params.popup | default "" }}
