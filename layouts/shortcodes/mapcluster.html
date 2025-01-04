@@ -11,18 +11,6 @@
 
 <!-- Generate Map HTML -->
 {{ if not $error }}
-  <div>
-    <h2>Extracted Latitudes and Longitudes</h2>
-    <ul>
-      {{ range $pages }}
-        <li>
-          <strong>{{ .Title }}</strong>:
-          Lat: {{ .Params.popupLat | default "Not Provided" }},
-          Long: {{ .Params.popupLong | default "Not Provided" }}
-        </li>
-      {{ end }}
-    </ul>
-  </div>
 
   <div id="mapcluster" class="leaflet-cluster-map"
   data-map-markers='[
