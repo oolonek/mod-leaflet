@@ -1,62 +1,7 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-
-<p>{{ .Description }}</p>
-
-{{ .Content }}
-
-<div id="members-map" class="leaflet-map" style="height: 500px; width: 1000px;"></div>
-<script>
-  const markers = [
-    {{ range .Pages }}
-    {
-      name: "{{ .Title }}",
-      lat: {{ .Params.popupLat }},
-      long: {{ .Params.popupLong }},
-      popup: "{{ .Params.popup | default .Title }}",
-      link: "{{ .RelPermalink }}"
-    },
-    {{ end }}
-  ];
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const map = L.map("members-map");
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-
-    // Initialize marker cluster group
-    const markersCluster = L.markerClusterGroup();
-
-    // Create bounds object
-    const bounds = L.latLngBounds();
-
-    // Add markers to the cluster group and extend bounds
-    markers.forEach(marker => {
-      const popupContent = `
-        <strong>${marker.name}</strong><br>
-        ${marker.popup}<br>
-        <a href="${marker.link}" target="_blank">View Member Page</a>
-      `;
-      const m = L.marker([marker.lat, marker.long]).bindPopup(popupContent);
-      markersCluster.addLayer(m);
-
-      // Extend bounds to include this marker
-      bounds.extend([marker.lat, marker.long]);
-    });
-
-    // Fit map to bounds
-    if (!bounds.isValid()) {
-      // Set a default view if no valid bounds (e.g., no markers)
-      map.setView([52.377, 4.90], 6);
-    } else {
-      // Fit the map to the bounds with some padding and zoom in a bit
-      map.fitBounds(bounds, { padding: [10, 10] });
-      map.setZoom(map.getZoom() - 0.6);
-    }
-      // Add the cluster group to the map
-      map.addLayer(markersCluster);
-
-  });
-</script>
-
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ end }}
 {{ end }}

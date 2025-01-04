@@ -1,0 +1,43 @@
+{{ $error := false }}
+
+<!-- Debug Context -->
+{{ $pages := .Page.Pages }}
+{{ if not $pages }}
+  {{ warnf "[mapcluster] No pages found in the current section." }}
+  {{ $error = true }}
+{{ else }}
+  {{ warnf "[mapcluster] Found %d pages." (len $pages) }}
+{{ end }}
+
+<!-- Generate Map HTML -->
+{{ if not $error }}
+  <div>
+    <h2>Extracted Latitudes and Longitudes</h2>
+    <ul>
+      {{ range $pages }}
+        <li>
+          <strong>{{ .Title }}</strong>:
+          Lat: {{ .Params.popupLat | default "Not Provided" }},
+          Long: {{ .Params.popupLong | default "Not Provided" }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  <div id="mapcluster" class="leaflet-cluster-map"
+  data-map-markers='[
+    {{ range $index, $page := $pages }}
+    {{ if $index }},{{ end }}
+    {
+      "name": "{{ .Title }}",
+      "lat": {{ .Params.popupLat | default "null" }},
+      "long": {{ .Params.popupLong | default "null" }},
+      "popup": "{{ .Params.popup | default .Title }}",
+      "link": "{{ .RelPermalink }}"
+    }
+    {{ end }}
+  ]'>
+</div>
+{{ else }}
+  <p>[mapcluster] Error: Unable to retrieve pages or process the shortcode.</p>
+{{ end }}
