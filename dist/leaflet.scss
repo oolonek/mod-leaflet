@@ -694,6 +694,12 @@ width: 40px;
 height: 40px;
 text-align: center;
 }
+
+.leaflet-cluster-map {
+	height: 500px; // Or any defined height
+	width: 80%;   // Or any defined width
+  }
+  
 /* Printing */
 
 @media print {

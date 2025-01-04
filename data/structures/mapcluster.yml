@@ -1,0 +1,32 @@
+comment: >-
+  Use the mapcluster shortcode to show an interactive map with clustered markers, powered by Leaflet. 
+  The shortcode accepts a list of pages and displays their metadata on the map.
+arguments:
+  id:
+    type: string
+    optional: true
+    comment: >-
+      Unique identifier of the map element, defaults to `leaflet-map-n` with a
+      sequential number `n`.
+  class:
+    type: string
+    optional: true
+    default: ratio ratio-16x9 w-80 mx-auto
+    comment: Class attribute of the map container element.
+  list:
+    type: 
+      - 'page.Pages'
+    optional: false
+    comment: >-
+      Required list of pages to display as markers on the map. This must be 
+      explicitly passed in the shortcode, e.g., `.Pages` or a filtered collection 
+      such as `where .Site.Pages "Section" "members"`.
+  zoom:
+    type: int
+    optional: true
+    default: 13
+    comment: >-
+      Initial map zoom level between 1 (minimum zoom) - 18 (maximum zoom).
+    options:
+      min: 1
+      max: 18
