@@ -29,6 +29,7 @@
 <!-- Main code -->
 {{- if not $error -}}
     <div id="{{ $id }}" class="leaflet-map {{ $class }}"
+        data-leaflet-view-title="{{ .Page.Title }}"
         {{ with $zoom }}data-leaflet-view-zoom="{{ . }}"{{ end }}
         {{ with $popup }}data-leaflet-popup-caption="{{ . }}"{{ end }}
         {{ with $popupLat }}data-leaflet-popup-lat="{{ . }}"{{ end }}
